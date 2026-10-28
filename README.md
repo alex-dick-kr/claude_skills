@@ -98,6 +98,36 @@ Or install directly with a single command (format: `<plugin-name>@<marketplace-n
 Append `--scope user|project|local` to install/enable commands to control whether the
 plugin applies globally, to the current project, or only to your local checkout.
 
+## Official plugins (separate marketplace)
+
+This repo only covers the custom SAT Support skills (kraken, powerbi, servicenow). The
+rest of the standard toolset comes from Anthropic's official marketplace instead --
+register it the same way, just with a marketplace name instead of a repo URL:
+
+```
+/plugin marketplace add anthropics/claude-plugins-official
+```
+
+Then install:
+
+```
+/plugin install azure@claude-plugins-official
+/plugin install atlassian@claude-plugins-official
+/plugin install dynatrace@claude-plugins-official
+```
+
+> Skip `servicenow-sdk` -- that's for building/scripting ServiceNow apps (scoped apps,
+> business rules, ACLs, ATF tests). SAT Support only investigates ServiceNow data
+> (incidents, changes, problems, CMDB), which the `servicenow` plugin in **this**
+> marketplace already covers -- see [Available Plugins](#available-plugins) above.
+
+Confirm both marketplaces are registered and see everything installed:
+
+```
+/plugin marketplace list
+/plugin
+```
+
 ## Credentials
 
 Each plugin's own README documents what it needs. Summary:
