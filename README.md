@@ -33,6 +33,14 @@ Works on both macOS and Windows. Before installing, each person needs:
   python -m pip install certifi
   ```
 
+> **No admin rights on your machine?** None of the above require it:
+> - `uv`'s install script installs to your user profile (`~/.local/bin` or
+>   `%USERPROFILE%\.local\bin`) -- no elevation needed.
+> - Add `--user` to the pip command: `python -m pip install --user certifi`.
+> - For Power BI's Azure CLI (see [Credentials](#credentials) below), skip the
+>   Homebrew/winget install -- which can require admin -- and use
+>   `pip install --user azure-cli` instead.
+
 Per-plugin account/credential prerequisites are in [Credentials](#credentials) below.
 
 ## Adding this marketplace and installing plugins [Claude Code]
@@ -114,6 +122,13 @@ brew update && brew install azure-cli
 # Windows (winget)
 winget install -e --id Microsoft.AzureCLI
 # or download/run the MSI: https://aka.ms/installazurecliwindows
+```
+
+No admin rights? Both of the above can require elevation. Install into your user
+Python environment instead -- works on macOS and Windows:
+
+```
+pip install --user azure-cli
 ```
 
 Then, on either OS:

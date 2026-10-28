@@ -22,6 +22,13 @@ brew update && brew install azure-cli
 winget install -e --id Microsoft.AzureCLI
 ```
 
+No admin rights? Both can require elevation -- install into your user Python
+environment instead:
+
+```
+pip install --user azure-cli
+```
+
 Then run `az login` once per machine (signs in via browser with your Kroger Azure AD
 account). Re-run it if the session expires later.
 
