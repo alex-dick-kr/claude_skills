@@ -23,8 +23,10 @@ service account information -- do not use your own ServiceNow login.
 
 ### Python dependencies
 
+Only `certifi` (SSL certificate handling, required on macOS):
+
 ```
-python -m pip install -r plugins/servicenow/skills/servicenow-itsm/scripts/requirements.txt
+python -m pip install certifi
 ```
 
 ## Installation
