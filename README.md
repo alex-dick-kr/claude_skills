@@ -31,6 +31,14 @@ does).
 /plugin marketplace add alex-dick-kr/claude_skills
 ```
 
+> **SSH blocked on your network?** The shorthand above clones over SSH (port 22),
+> which some corporate networks block, causing `ssh: connect to host github.com
+> port 22: Connection timed out`. If you hit that, use the HTTPS URL instead:
+> ```
+> /plugin marketplace remove claude-skills
+> /plugin marketplace add https://github.com/alex-dick-kr/claude_skills
+> ```
+
 **From a local clone of this repo instead:**
 
 ```
