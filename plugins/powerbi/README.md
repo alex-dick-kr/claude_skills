@@ -10,7 +10,20 @@ REST API.
 ## Required credentials
 
 None stored by this skill. Auth uses your existing Azure CLI session (`az login`) --
-no client secret to manage. Run `az login` once per machine if you haven't already.
+no client secret to manage.
+
+If you don't have the Azure CLI installed yet:
+
+```
+# macOS (Homebrew)
+brew update && brew install azure-cli
+
+# Windows (winget)
+winget install -e --id Microsoft.AzureCLI
+```
+
+Then run `az login` once per machine (signs in via browser with your Kroger Azure AD
+account). Re-run it if the session expires later.
 
 ## Installation
 

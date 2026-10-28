@@ -105,6 +105,28 @@ Credentials are never stored in this repo. Each plugin reads its own values from
 -- create or edit that file directly, following the variable names listed in the
 plugin's README.
 
+### Power BI: installing the Azure CLI and signing in
+
+```
+# macOS (Homebrew)
+brew update && brew install azure-cli
+
+# Windows (winget)
+winget install -e --id Microsoft.AzureCLI
+# or download/run the MSI: https://aka.ms/installazurecliwindows
+```
+
+Then, on either OS:
+
+```
+az login
+```
+
+This opens a browser to sign in with your Kroger Azure AD account. The session it
+creates is what the powerbi plugin reuses -- no separate credentials to store. Re-run
+`az login` whenever the session expires (you'll see an auth error from the plugin when
+that happens).
+
 ## Repository Structure
 
 ```
