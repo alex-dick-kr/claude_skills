@@ -15,6 +15,6 @@ no client secret to manage. Run `az login` once per machine if you haven't alrea
 ## Installation
 
 ```
-/plugin marketplace add alex-dick-kr/claude_skills
+/plugin marketplace add https://github.com/alex-dick-kr/claude_skills
 /plugin install powerbi@claude-skills
 ```

@@ -22,6 +22,6 @@ These are **personal credentials** (your own Kraken login), not a service accoun
 ## Installation
 
 ```
-/plugin marketplace add alex-dick-kr/claude_skills
+/plugin marketplace add https://github.com/alex-dick-kr/claude_skills
 /plugin install kraken@claude-skills
 ```

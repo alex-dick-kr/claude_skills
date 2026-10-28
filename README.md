@@ -13,6 +13,28 @@ installing them is a single command instead of copying files by hand.
 | [powerbi](plugins/powerbi) | Query Power BI workspaces, datasets, reports, and refresh status |
 | [servicenow](plugins/servicenow) | ServiceNow ITSM: incidents, changes, problems, catalog, CMDB, companies |
 
+## Prerequisites
+
+Works on both macOS and Windows. Before installing, each person needs:
+
+- **Claude Code** installed.
+- **`uv`** -- the kraken and powerbi scripts use it to auto-install their Python
+  dependencies on first run.
+  ```
+  # macOS/Linux
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+
+  # Windows (PowerShell)
+  powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+  ```
+- **Python 3 + `certifi`** -- only needed for the servicenow plugin (its scripts run on
+  plain `python3`, not `uv`).
+  ```
+  python -m pip install certifi
+  ```
+
+Per-plugin account/credential prerequisites are in [Credentials](#credentials) below.
+
 ## Adding this marketplace and installing plugins [Claude Code]
 
 Use the `/plugin` slash command inside Claude Code to register this repo as a
@@ -22,30 +44,17 @@ marketplace and install plugins from it.
 
 ### 1. Register this repo as a marketplace
 
-The marketplace must contain `.claude-plugin/marketplace.json` at its root (this repo
-does).
-
-**From the GitHub repo (recommended -- no clone needed):**
-
 ```
-/plugin marketplace add alex-dick-kr/claude_skills
+/plugin marketplace add https://github.com/alex-dick-kr/claude_skills
 ```
 
-> **SSH blocked on your network?** The shorthand above clones over SSH (port 22),
-> which some corporate networks block, causing `ssh: connect to host github.com
-> port 22: Connection timed out`. If you hit that, use the HTTPS URL instead:
+> **If `/plugin marketplace add` was run before with the `owner/repo` shorthand**
+> (e.g. `alex-dick-kr/claude_skills`) and failed with an SSH error, remove it first:
 > ```
 > /plugin marketplace remove claude-skills
-> /plugin marketplace add https://github.com/alex-dick-kr/claude_skills
 > ```
-
-**From a local clone of this repo instead:**
-
-```
-/plugin marketplace add ./path/to/claude_skills
-```
-
-(Pass either the repo root or the `marketplace.json` path directly.)
+> then re-run the `add` command above with the full `https://` URL -- the shorthand
+> clones over SSH (port 22), which some corporate networks block.
 
 ### 2. Browse and install plugins
 
@@ -87,13 +96,14 @@ Each plugin's own README documents what it needs. Summary:
 
 | Plugin | Credential type | Where to get it |
 |--------|------------------|------------------|
-| kraken | Personal EUID/password | Your own Kraken login |
-| powerbi | None (uses `az login`) | Run `az login` once |
+| kraken | Personal EUID/password | Your own Kraken login. Don't have one? Go to [kraken.kroger.com](https://kraken.kroger.com) and request access -- it's not granted through this plugin. |
+| powerbi | None (uses your existing Azure session) | Install the Azure CLI, then run `az login` once on your machine |
 | servicenow | **Service account** | Not self-service -- reach out to your manager for service account information |
 
 Credentials are never stored in this repo. Each plugin reads its own values from
-`~/.claude/.env` on the machine where Claude Code runs -- create or edit that file
-directly, following the variable names listed in the plugin's README.
+`~/.claude/.env` on the machine where Claude Code runs (same path on macOS and Windows)
+-- create or edit that file directly, following the variable names listed in the
+plugin's README.
 
 ## Repository Structure
 

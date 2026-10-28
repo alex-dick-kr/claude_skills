@@ -23,7 +23,7 @@ service account information -- do not use your own ServiceNow login.
 
 ### Python dependencies
 
-Only `certifi` (SSL certificate handling, required on macOS):
+Only `certifi` (SSL certificate handling):
 
 ```
 python -m pip install certifi
@@ -32,6 +32,6 @@ python -m pip install certifi
 ## Installation
 
 ```
-/plugin marketplace add alex-dick-kr/claude_skills
+/plugin marketplace add https://github.com/alex-dick-kr/claude_skills
 /plugin install servicenow@claude-skills
 ```
