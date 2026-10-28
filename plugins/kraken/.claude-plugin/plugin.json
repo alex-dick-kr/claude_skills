@@ -1,0 +1,8 @@
+{
+  "name": "kraken",
+  "version": "0.1.0",
+  "description": "Query and act on Kraken (kraken.kroger.com), Kroger's internal network asset API.",
+  "author": {
+    "name": "SAT Support"
+  }
+}

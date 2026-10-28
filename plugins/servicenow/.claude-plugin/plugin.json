@@ -1,0 +1,8 @@
+{
+  "name": "servicenow",
+  "version": "0.1.0",
+  "description": "ServiceNow ITSM operations: incidents, changes, problems, service catalog, CMDB, and companies.",
+  "author": {
+    "name": "SAT Support"
+  }
+}

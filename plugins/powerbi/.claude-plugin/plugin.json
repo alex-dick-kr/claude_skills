@@ -1,0 +1,8 @@
+{
+  "name": "powerbi",
+  "version": "0.1.0",
+  "description": "Query Power BI workspaces, datasets, reports, and dataset refresh status via the Power BI REST API.",
+  "author": {
+    "name": "SAT Support"
+  }
+}

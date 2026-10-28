@@ -1,0 +1,22 @@
+{
+  "name": "claude-skills",
+  "owner": { "name": "Alex Dick", "email": "alex.dick@kroger.com" },
+  "description": "Claude Code plugins marketplace for SAT Support custom skills: Kraken, Power BI, and ServiceNow ITSM.",
+  "plugins": [
+    {
+      "name": "kraken",
+      "source": "./plugins/kraken",
+      "description": "Query and act on Kraken (kraken.kroger.com) -- store/device search, MAC/IP lookups, switch port actions, ECS compliance, config/firmware jobs."
+    },
+    {
+      "name": "powerbi",
+      "source": "./plugins/powerbi",
+      "description": "Query Power BI workspaces, datasets, reports, and dataset refresh status via the Power BI REST API."
+    },
+    {
+      "name": "servicenow",
+      "source": "./plugins/servicenow",
+      "description": "ServiceNow ITSM operations: incidents, changes, problems, service catalog, CMDB, and companies."
+    }
+  ]
+}
