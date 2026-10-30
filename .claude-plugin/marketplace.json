@@ -1,12 +1,17 @@
 {
   "name": "claude-skills",
   "owner": { "name": "Alex Dick", "email": "alex.dick@kroger.com" },
-  "description": "Claude Code plugins marketplace for SAT Support custom skills: Kraken, Power BI, and ServiceNow ITSM.",
+  "description": "Claude Code plugins marketplace for SAT Support custom skills: Kraken, Sherpa, Power BI, and ServiceNow ITSM.",
   "plugins": [
     {
       "name": "kraken",
       "source": "./plugins/kraken",
       "description": "Query and act on Kraken (kraken.kroger.com) -- store/device search, MAC/IP lookups, switch port actions, ECS compliance, config/firmware jobs."
+    },
+    {
+      "name": "sherpa",
+      "source": "./plugins/sherpa",
+      "description": "Query Sherpa (sherpa.kroger.com) -- location, IP subnet, floor, GPS/MS Teams GUID, and circuit/asset data."
     },
     {
       "name": "powerbi",

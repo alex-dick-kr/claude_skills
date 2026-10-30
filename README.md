@@ -2,14 +2,15 @@
 
 Claude Code plugins marketplace for **SAT Support** custom skills. This repo contains
 shared skills that aren't part of Claude Code's official plugin marketplace --
-Kraken, Power BI, and ServiceNow ITSM -- packaged the same way official plugins are, so
-installing them is a single command instead of copying files by hand.
+Kraken, Sherpa, Power BI, and ServiceNow ITSM -- packaged the same way official plugins
+are, so installing them is a single command instead of copying files by hand.
 
 ## Available Plugins
 
 | Plugin | Description |
 |--------|-------------|
 | [kraken](plugins/kraken) | Query/act on Kraken (kraken.kroger.com) -- network asset search, switch port actions, ECS compliance, config/firmware jobs |
+| [sherpa](plugins/sherpa) | Query Sherpa (sherpa.kroger.com) -- location, IP subnet, floor, GPS/MS Teams GUID, and circuit/asset data |
 | [powerbi](plugins/powerbi) | Query Power BI workspaces, datasets, reports, and refresh status |
 | [servicenow](plugins/servicenow) | ServiceNow ITSM: incidents, changes, problems, catalog, CMDB, companies |
 
@@ -79,6 +80,7 @@ Or install directly with a single command (format: `<plugin-name>@<marketplace-n
 
 ```
 /plugin install kraken@claude-skills
+/plugin install sherpa@claude-skills
 /plugin install powerbi@claude-skills
 /plugin install servicenow@claude-skills
 ```
@@ -100,7 +102,7 @@ plugin applies globally, to the current project, or only to your local checkout.
 
 ## Official plugins (separate marketplace)
 
-This repo only covers the custom SAT Support skills (kraken, powerbi, servicenow). The
+This repo only covers the custom SAT Support skills (kraken, sherpa, powerbi, servicenow). The
 rest of the standard toolset comes from Anthropic's official marketplace instead --
 register it the same way, just with a marketplace name instead of a repo URL:
 
@@ -135,6 +137,7 @@ Each plugin's own README documents what it needs. Summary:
 | Plugin | Credential type | Where to get it |
 |--------|------------------|------------------|
 | kraken | Personal EUID/password | Your own Kraken login. Don't have one? Go to [kraken.kroger.com](https://kraken.kroger.com) and request access -- it's not granted through this plugin. |
+| sherpa | Kroger OAuth2 client-credentials client (`KROGER_CLIENT_ID`/`KROGER_CLIENT_SECRET`) | A Kroger API client granted `urn:com:kroger:kr:sherpa:*:read` scope(s) -- often the same client already used for other Kroger-hosted APIs, if it's been granted Sherpa scopes. Not self-service for a new client -- reach out to your manager/API admin. |
 | powerbi | None (uses your existing Azure session) | Install the Azure CLI, then run `az login` once on your machine |
 | servicenow | **Service account** | Not self-service -- reach out to your manager for service account information |
 
