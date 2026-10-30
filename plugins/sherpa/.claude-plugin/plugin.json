@@ -1,0 +1,8 @@
+{
+  "name": "sherpa",
+  "version": "0.1.0",
+  "description": "Query Sherpa (sherpa.kroger.com), Kroger's NOE infrastructure management framework - location, IP subnet, floor, and circuit/asset data.",
+  "author": {
+    "name": "SAT Support"
+  }
+}
